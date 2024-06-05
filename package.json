@@ -1,0 +1,22 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "Tuto typescript 05/06/2024",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/RovaFitia/typescript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RovaFitia/typescript/issues"
+  },
+  "homepage": "https://github.com/RovaFitia/typescript#readme",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
