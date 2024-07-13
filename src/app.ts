@@ -341,3 +341,72 @@ export class Point {
         return this;
     }
 }
+
+/* -----------------------------
+    Type utilitaire
+--------------------------------*/
+// Type utilitaire
+/*
+type AnimalOption = { nager: any } | { sauter: any };
+type AnimalFormOptions<T> = T extends { nager: any } ? Poisson : Chat;
+
+class Poisson {}
+class Chat {}
+
+function generator<T extends AnimalOption>(options: T): AnimalFormOptions<T> {
+    if ("nager" in options) {
+        return new Poisson();
+    } else {
+        return new Chat();
+    }
+}
+
+const test = generator({ nager: "zaza" });
+*/
+/*
+class Poisson {
+    cri() {
+        return false;
+    }
+}
+class Chat {
+    cri() {
+        return "miaow";
+    }
+}
+
+type AnimalCri<T> = T extends { cri: () => infer U } ? U : never;
+type AA = AnimalCri<Chat>;
+type BB = AnimalCri<Poisson>;
+*/
+
+// Utilise les Mapping
+
+class FeatureFlags {
+    env = "Hello";
+    darkMode() {
+        return true;
+    }
+    privateMode() {
+        return true;
+    }
+    nsfwMode() {
+        return true;
+    }
+}
+
+type OptionsFlag<T> = {
+    +readonly [key in keyof T as `get${Capitalize<string & key>}`]: T[key] extends () => boolean
+        ? boolean
+        : never;
+
+    // Retirer env
+    /*
+    +readonly [key in keyof T as Exclude<
+        key,
+        "env"
+    >]: T[key] extends () => boolean ? boolean : never;
+    */
+};
+
+type AA = OptionsFlag<FeatureFlags>;
