@@ -1,10 +1,11 @@
 {
-  "compilerOptions": {
-    "outDir": "dist",
-    "target": "ES2015",
-    "noEmitOnError": true,
-    "strict": true,
-    "noUncheckedIndexedAccess": true
-  },
-  "files": ["src/app.ts"]
+    "compilerOptions": {
+        "outDir": "dist",
+        "target": "ES2015",
+        "noEmitOnError": true,
+        "strict": true,
+        "declaration": true,
+        "noUncheckedIndexedAccess": true
+    },
+    "files": ["src/app.ts"]
 }

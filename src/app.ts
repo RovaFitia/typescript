@@ -110,7 +110,7 @@ if(compteur) {
   ----------------- */
 
 function reverse<T>(arr: readonly T[]): T[] {
-  return [...arr].reverse(); // Le spride opérator permet de créer un nouveau tableau
+    return [...arr].reverse(); // Le spride opérator permet de créer un nouveau tableau
 }
 
 /* ----------------
@@ -118,38 +118,38 @@ function reverse<T>(arr: readonly T[]): T[] {
   ----------------- */
 
 class A {
-  private a = 3;
-  protected b = "hello";
+    private a = 3;
+    protected b = "hello";
 
-  log() {
-    console.log(this.a);
-  }
+    log() {
+        console.log(this.a);
+    }
 }
 
 class B extends A {
-  log() {
-    console.log(this.b);
-  }
+    log() {
+        console.log(this.b);
+    }
 }
 
 const aInstance = new A();
 aInstance.log();
 
 class Collection<T> {
-  constructor(private items: T[]) {}
+    constructor(private items: T[]) {}
 
-  add(item: T): this {
-    this.items.push(item);
-    return this;
-  }
+    add(item: T): this {
+        this.items.push(item);
+        return this;
+    }
 
-  first(): T | null {
-    return this.items[0] || null;
-  }
+    first(): T | null {
+        return this.items[0] || null;
+    }
 
-  isEqual(a: this) {
-    return a.items === this.items;
-  }
+    isEqual(a: this) {
+        return a.items === this.items;
+    }
 }
 
 class CollectB<T> extends Collection<T> {}
@@ -157,7 +157,7 @@ class CollectB<T> extends Collection<T> {}
   Change le this d'une class
 ----------------------------*/
 class onSubscriber {
-  on(this: HTMLElement, name: string, cb: Function) {}
+    on(this: HTMLElement, name: string, cb: Function) {}
 }
 
 const collect = new Collection([1, 2]);
@@ -194,18 +194,18 @@ getX(new Geometry());
 -----------------------*/
 
 abstract class Geometry {
-  x = 0;
-  y = 0;
-  abstract surface(): number;
+    x = 0;
+    y = 0;
+    abstract surface(): number;
 }
 
 class Triangle extends Geometry {
-  x = 2;
-  y = 2;
+    x = 2;
+    y = 2;
 
-  surface(): number {
-    return 3;
-  }
+    surface(): number {
+        return 3;
+    }
 }
 
 /* ----------------------
@@ -220,29 +220,31 @@ Trigo.origin;
 */
 
 class Trigo {
-  static #origin: { x: number; y: number };
+    static #origin: { x: number; y: number };
 
-  static {
-    Trigo.#origin = { x: 0, y: 0 };
-  }
+    static {
+        Trigo.#origin = { x: 0, y: 0 };
+    }
 }
 
 /* --------------------
   Interface
 -----------------------*/
+/*
 interface Point {
-  x: number;
-  y: number;
+    x: number;
+    y: number;
 }
 
 class TwoDimensionPoint implements Point {
-  x = 0;
-  y = 0;
+    x = 0;
+    y = 0;
 }
 
 function draw(p: Point) {}
 
 draw(new TwoDimensionPoint());
+*/
 
 /* ----------------------------------
   unknow : au lieu d'utilisé any on utilise unknow
@@ -310,10 +312,10 @@ enum STEPS {
 
 // Enum constant
 const enum STEPS {
-  Intro,
-  Selection,
-  Panier,
-  Paiement,
+    Intro,
+    Selection,
+    Panier,
+    Paiement,
 }
 
 const step: STEPS = STEPS.Selection;
@@ -321,3 +323,21 @@ const step: STEPS = STEPS.Selection;
 //console.log(step);
 // Reverse mapping
 //console.log(STEPS[step]);
+
+/*-----------------------------
+  Déclaration
+-------------------------------*/
+export class Point {
+    x: number;
+    y: number;
+    constructor() {
+        this.x = 0;
+        this.y = 0;
+    }
+
+    move(x: number, y: number) {
+        this.x += x;
+        this.y += y;
+        return this;
+    }
+}
