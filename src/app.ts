@@ -243,3 +243,81 @@ class TwoDimensionPoint implements Point {
 function draw(p: Point) {}
 
 draw(new TwoDimensionPoint());
+
+/* ----------------------------------
+  unknow : au lieu d'utilisé any on utilise unknow
+-------------------------------------*/
+/*
+function a(arg: unknown) {
+  // On met un Narrowing
+  if (arg instanceof HTMLInputElement) {
+    arg.value = "Hello world";
+  }
+}
+*/
+
+/* ----------------------
+  Litéralle
+-------------------------*/
+
+//const a = { isPrivate: true as true, isPublic: false }; // Forcé isPrivate à true
+//const a = { isPrivate: true as const, isPublic: false }; //isPrivate à constant
+//const a = { isPrivate: true, isPublic: false } as const; //a devient un readonly
+//const a = [1, 2, 3] as const;
+
+/* -----------------------
+  Tuple: c'est tableau de taille Fixe
+--------------------------*/
+
+// Type :
+/*
+type ListItem = [string, number];
+
+const a: ListItem = ["Tomate", 2]; // Tuple: limité la taille d'un tableau
+const b: ListItem = ["Pomme", 4]; // Tuple: limité la taille d'un tableau
+
+// Fusion ou merge
+function merge<T extends unknown[], U extends unknown[]>(
+  a: T,
+  b: U,
+): [...T, ...U] {
+  return [...a, ...b];
+}
+
+const c = merge(a, b);
+*/
+
+type ListItem = [string, number];
+const a: ListItem = ["Tomate", 2]; // Tuple: limité la taille d'un tableau
+const b: ListItem = ["Pomme", 4]; // Tuple: limité la taille d'un tableau
+
+const c = [] as string[];
+
+console.log(c[0]?.toUpperCase());
+
+/* ---------------------
+  Enum : pour enumérer quelque chose
+------------------------*/
+
+/*
+enum STEPS {
+  Intro,
+  Selection,
+  Panier,
+  Paiement,
+}
+*/
+
+// Enum constant
+const enum STEPS {
+  Intro,
+  Selection,
+  Panier,
+  Paiement,
+}
+
+const step: STEPS = STEPS.Selection;
+
+//console.log(step);
+// Reverse mapping
+//console.log(STEPS[step]);
